@@ -1,0 +1,52 @@
+
+
+\begin{tikzpicture}
+    % Draw the water surface line
+    \draw[thick] (-2, 0) -- (0, 0);
+        \draw[thick] (1.35, 0) -- (6, 0);
+
+
+    % Draw water flow arrows on the left side
+    \foreach \y in {-4.5, -4, -3.5, -3, -2.5, -2, -1.5, -1, -0.5} {
+        \draw[->] (-2, \y) -- (-0.5, \y); % Stops arrows before reaching the cuboid
+    }
+    % Label the velocity
+    \node[left] at (-2, -0.25) {$2 \, \mathrm{m/s}$};
+
+    % Draw triangles to represent sensors or supports above and below the line
+    \draw (-2, 0) -- (-1.8, 0.2) -- (-2.2, 0.2) -- cycle;
+    \draw (5.5, 0) -- (5.7, 0.2) -- (5.3, 0.2) -- cycle;
+\draw (-1.8, -0.2) -- (-2.2, -0.2);
+\draw (5.7, -0.2) -- (5.3, -0.2);
+\draw (5.7, -0.3) -- (5.3, -0.3);
+\draw (-1.8, -0.3) -- (-2.2, -0.3);
+
+    % Draw the vertical wall (cuboid)
+    \draw[thick] (0, 0) -- (0, -6);       % left edge
+    \draw[thick] (1, 0.25) -- (1, -5.75);       % right edge
+    \draw[thick] (0, 0) -- (0.75, 0);        % top edge
+    \draw[thick] (0, -6) -- (0.75, -6);      % bottom edge
+    \draw(1,-5.75)--(0.75,-6);
+        \draw(1,0.25)--(0.75,0);
+                \draw[<->](1.2,0.25)--(0.95,0);
+        \draw(0.25,0.25)--(0,0);
+        \draw(0.25,0.25)--(1,0.25);
+
+
+    % Draw the thickness lines for the wall
+    \draw[thick] (0.75, 0) -- (0.75, -6);   % center line indicating thicknes
+
+    % Draw horizontal lines for top distances
+    \draw[<->] (0.25, 0.5) -- (1, 0.5);  % 150 mm at the top
+    \node[above] at (0.25, 0.5) {\small{150 mm}};
+    \node[above] at (1.60, 0.08) {\tiny{150 mm}};
+
+    % Draw vertical distance line with label
+    \draw[<->] (1.2, 0) -- (1.2, -6);
+    \node[right] at (1.2, -3) {8 m};
+
+    % Draw the base (ground) with hatch pattern
+    \fill[pattern=north east lines] (-2.5, -6.2) rectangle (5.5, -6);
+
+\end{tikzpicture}
+
